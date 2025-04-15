@@ -1,0 +1,40 @@
+<header class="custom-header">
+  <div class="navbar">
+    <!-- Left: Hamburger -->
+    <div class="nav-left">
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <!-- Center: Logo -->
+    <div class="nav-center">
+      <a href="{{ shop.url }}">
+        <img src="{{ section.settings.logo | image_url: width: 100 }}" alt="Logo" class="logo" width="100" height="auto">
+      </a>
+    </div>
+
+    <!-- Right: Search and Cart -->
+    <div class="nav-right">
+      <a href="/search" class="icon">🔍</a>
+      <a href="/cart" class="icon">{% render 'icon-cart' %}</a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Custom Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+  function toggleMenu() {
+    alert("Hamburger clicked! (Add mobile menu toggle logic here)");
+  }
+</script>

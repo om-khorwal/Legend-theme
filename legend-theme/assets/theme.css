@@ -1,0 +1,56 @@
+body {
+    font-family: sans-serif;
+    padding: 0px;
+    margin:0px;
+  height:100%;
+  width:100%;
+  
+  }
+  .custom-header {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eaeaea;
+    padding: 10px 20px;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-left,
+  .nav-center,
+  .nav-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-left {
+    justify-content: flex-start;
+  }
+  .nav-right {
+    justify-content: flex-end;
+    gap: 15px;
+  }
+  
+  .logo {
+    max-height: 40px;
+    object-fit: contain;
+  }
+  
+  .hamburger {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .icon {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+  }
+  
