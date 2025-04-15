@@ -60,18 +60,38 @@ body {
     text-decoration: none;
     color: black;
   }
-  .heroimage {
+  .hero-banner {
     position: relative;
-    text-align: center;
-    color: white;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
-  .heroimage__content {
+  
+  .hero-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .hero-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    z-index: 1;
   }
-  .heroimage__image {
-    width: 100%;
-    height: auto;
+  
+  @media (max-width: 768px) {
+    .hero-text {
+      font-size: 1.5rem;
+      padding: 0.5rem;
+    }
   }
+  
