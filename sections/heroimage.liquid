@@ -1,17 +1,38 @@
-<heroimage>
-  <div class="heroimage">
-    <div class="heroimage__content">
-      <h1>{{ section.settings.title }}</h1>
-      <p>{{ section.settings.description }}</p>
-    </div>
+<section class="hero-banner">
+  <a href="{{ section.settings.hero_link }}">
     <img
-      src="{{ section.settings.image | img_url: '2048x' }}"
-      alt="{{ section.settings.image.alt | escape }}"
-      class="heroimage__image"
-      width="2048"
-      height="auto"
+      src="{{ section.settings.hero_image | image_url: width: 1600 }}"
+      alt="Hero Banner"
+      width="{{ section.settings.hero_image.width }}"
+      height="{{ section.settings.hero_image.height }}"
     >
+  </a>
+  <div class="hero-text">
+    {{ section.settings.hero_text }}
   </div>
+</section>
 
-  
-</heroimage>
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "url",
+      "id": "hero_link",
+      "label": "Image Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "hero_text",
+      "label": "Overlay Text",
+      "default": "Welcome to {{ shop.name }}"
+    }
+  ]
+}
+{% endschema %}
