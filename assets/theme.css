@@ -36,6 +36,8 @@ body {
   }
   .nav-right {
     justify-content: flex-end;
+    padding-left:40px
+
   }
     .nav-left a{
     padding-left: 20px;
