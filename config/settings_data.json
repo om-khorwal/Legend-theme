@@ -19,6 +19,14 @@
       "footer": {
         "type": "footer",
         "settings": {}
+      },
+      "heroimage": {
+        "type": "heroimage",
+        "settings": {
+          "hero_image": "shopify://shop_images/Bunaiwala_3.webp",
+          "hero_link": "shopify://collections/all",
+          "hero_text": ""
+        }
       }
     },
     "content_for_index": []
