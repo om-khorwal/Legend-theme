@@ -1,0 +1,17 @@
+<heroimage>
+  <div class="heroimage">
+    <div class="heroimage__content">
+      <h1>{{ section.settings.title }}</h1>
+      <p>{{ section.settings.description }}</p>
+    </div>
+    <img
+      src="{{ section.settings.image | img_url: '2048x' }}"
+      alt="{{ section.settings.image.alt | escape }}"
+      class="heroimage__image"
+      width="2048"
+      height="auto"
+    >
+  </div>
+
+  
+</heroimage>

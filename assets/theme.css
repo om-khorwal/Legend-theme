@@ -60,4 +60,18 @@ body {
     text-decoration: none;
     color: black;
   }
-  
+  .heroimage {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  .heroimage__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .heroimage__image {
+    width: 100%;
+    height: auto;
+  }
