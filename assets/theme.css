@@ -88,6 +88,46 @@ body {
     z-index: 1;
   }
   
+  .category-icons {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s ease;
+  }
+  
+  .icon-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    margin-bottom: 0.5rem;
+  }
+  
+  .icon-item:hover {
+    transform: scale(1.05);
+    color: #000;
+  }
+  
+  
   @media (max-width: 768px) {
     .hero-text {
       font-size: 1.5rem;
