@@ -34,7 +34,7 @@ body {
   
   .nav-left {
     justify-content: flex-start;
-    padding-left:10px
+    padding-left:20px
   }
   .nav-right {
     justify-content: flex-end;
