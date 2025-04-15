@@ -38,7 +38,9 @@ body {
   .nav-right {
     justify-content: flex-end;
   }
-  
+    .nav-left a{
+    padding-left: 10px;
+  }
   .logo {
     max-height: 60px;
     object-fit: contain;
