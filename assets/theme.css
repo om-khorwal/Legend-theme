@@ -33,7 +33,7 @@ body {
   }
   .nav-right {
     justify-content: flex-end;
-    gap: 15px;
+    gap: 10px;
   }
   
   .logo {
