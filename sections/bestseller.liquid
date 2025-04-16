@@ -64,81 +64,34 @@
   </div>
 </section>
 {% schema %}
-{
-  "name": "Product Tabs",
-  "settings": [],
-  "blocks": [
     {
-      "type": "product_card",
-      "name": "Product Card",
+      "name": "Product Tabs",
       "settings": [
         {
-          "type": "text",
-          "id": "category",
-          "label": "Category (new/best)",
-          "default": "new"
+          "type": "collection",
+          "id": "bestsellers_collection",
+          "label": "Bestsellers Collection"
+        },
+        {
+          "type": "collection",
+          "id": "new_arrivals_collection",
+          "label": "New Arrivals Collection"
         },
         {
           "type": "text",
-          "id": "title",
-          "label": "Product Title"
-        },
+          "id": "heading",
+          "label": "Heading",
+          "default": "Our Products"
+        }
+      ],
+      "presets": [
         {
-          "type": "text",
-          "id": "price",
-          "label": "Product Price"
-        },
-        {
-          "type": "text",
-          "id": "variant",
-          "label": "Variant (Size/Type)"
-        },
-        {
-          "type": "text",
-          "id": "discount",
-          "label": "Discount (%)"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_1",
-          "label": "Product Image 1"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_2",
-          "label": "Product Image 2"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_3",
-          "label": "Product Image 3"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_4",
-          "label": "Product Image 4"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_5",
-          "label": "Product Image 5"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_6",
-          "label": "Product Image 6"
+          "name": "Product Tabs"
         }
       ]
     }
-  ],
-  "max_blocks": 16,
-  "presets": [
-    {
-      "name": "Product Tabs"
-    }
-  ]
-}
-{% endschema %}
+    {% endschema %}
+    
 
 <script>
   function switchTab(tabId) {
