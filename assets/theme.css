@@ -5,14 +5,12 @@ body {
   
   }
   .custom-header {
-    --bs-gutter-x: 2rem;
-    --bs-gutter-y: 0;
+    display: flex;
     width: 100%;
-    padding-left: calc(var(--bs-gutter-x) * .5);
-    padding-right: calc(var(--bs-gutter-x) * .5);
-    margin-right: auto;
-    margin-left: auto;
-    max-width: var(--bs-container-max-width);
+    height: 6rem;
+    background: #fff;
+    border-bottom: 1px solid #eaeaea;
+    justify-content: space-around;
   }
   
   .navbar {

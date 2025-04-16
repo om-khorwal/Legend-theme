@@ -27,6 +27,86 @@
           "hero_link": "shopify://collections/all",
           "hero_text": ""
         }
+      },
+      "circular-grid": {
+        "type": "circular-grid",
+        "blocks": {
+          "icon_HNqMKm": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify://shop_images/Banner_1_1.jpg",
+              "label": "New Arrival",
+              "link": ""
+            }
+          },
+          "icon_6q3q38": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify://shop_images/Banner_1_1.jpg",
+              "label": "Kurta",
+              "link": ""
+            }
+          },
+          "icon_p8tC88": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify://shop_images/Banner_1_1.jpg",
+              "label": "Chunni",
+              "link": ""
+            }
+          },
+          "icon_dc6tXP": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify://shop_images/Banner_1_1.jpg",
+              "label": "Lehnga",
+              "link": ""
+            }
+          },
+          "icon_FLXTXM": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify://shop_images/Banner_1_1.jpg",
+              "label": "Tops",
+              "link": ""
+            }
+          },
+          "icon_mgV66b": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify://shop_images/Banner_1_1.jpg",
+              "label": "Saddhi",
+              "link": ""
+            }
+          },
+          "icon_rJpXmw": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify://shop_images/Banner_1_1.jpg",
+              "label": "Gowns",
+              "link": ""
+            }
+          },
+          "icon_BYDyLA": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify://shop_images/Banner_1_1.jpg",
+              "label": "Anarkali",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "icon_HNqMKm",
+          "icon_6q3q38",
+          "icon_p8tC88",
+          "icon_dc6tXP",
+          "icon_FLXTXM",
+          "icon_mgV66b",
+          "icon_rJpXmw",
+          "icon_BYDyLA"
+        ],
+        "settings": {}
       }
     },
     "content_for_index": []
