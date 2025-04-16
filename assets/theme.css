@@ -87,48 +87,7 @@ body {
     text-shadow: 0 2px 5px rgba(0,0,0,0.6);
     z-index: 1;
   }
-  
-  .category-icons {
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    border-bottom: 2rem solid #ffff;
-    border-top: 2rem solid #ffff;
 
-  }
-  
-  .icon-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 1rem; ;
-  }
-  
-  .icon-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #333;
-    transition: transform 0.3s ease;
-  }
-  
-  .icon-item img {
-    width: 7rem;
-    height: 7rem;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #ddd;
-    margin-bottom: .5rem;
-    padding: 2px;
-  }
-  
-  .icon-item:hover {
-    transform: scale(1.05);
-    color: #000;
-  }
   
   
   @media (max-width: 768px) {
