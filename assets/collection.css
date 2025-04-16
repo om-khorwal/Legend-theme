@@ -10,13 +10,8 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1rem;
-    background-color: #f8f8f8;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-    cursor: pointer;
     text-decoration: none;
-    border: 2px solid #ddd;
     margin: 0 auto;
     max-width: 80%;
     padding: 1rem 2rem; 
