@@ -13,8 +13,12 @@
         <div class="product-card">
           <div class="image-carousel">
             {% for image in product.images limit: 6 %}
-              <img src="{{ image | img_url: '400x' }}" alt="{{ product.title }}"
-              width="400" height="400">
+              <img
+                src="{{ image | img_url: '400x' }}"
+                alt="{{ product.title }}"
+                width="400"
+                height="400"
+              >
             {% endfor %}
           </div>
           <h3>{{ product.title }}</h3>
@@ -30,8 +34,12 @@
         <div class="product-card">
           <div class="image-carousel">
             {% for image in product.images limit: 6 %}
-              <img src="{{ image | img_url: '400x' }}" alt="{{ product.title }}"
-              width="400" height="400">
+              <img
+                src="{{ image | img_url: '400x' }}"
+                alt="{{ product.title }}"
+                width="400"
+                height="400"
+              >
             {% endfor %}
           </div>
           <h3>{{ product.title }}</h3>
@@ -43,10 +51,87 @@
   </div>
 </section>
 
+{% schema %}
+{
+  "name": "Product Tabs",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category (new/best)",
+          "default": "new"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product Title"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Product Price"
+        },
+        {
+          "type": "text",
+          "id": "variant",
+          "label": "Variant (Size/Type)"
+        },
+        {
+          "type": "text",
+          "id": "discount",
+          "label": "Discount (%)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Product Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Product Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Product Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Product Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_5",
+          "label": "Product Image 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_6",
+          "label": "Product Image 6"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [
+    {
+      "name": "Product Tabs"
+    }
+  ]
+}
+{% endschema %}
+
 <script>
   function switchTab(tabId) {
-    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-    document.querySelectorAll('.product-scroll').forEach(grid => grid.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach((tab) => tab.classList.remove('active'));
+    document.querySelectorAll('.product-scroll').forEach((grid) => grid.classList.remove('active'));
 
     document.getElementById(tabId).classList.add('active');
     event.target.classList.add('active');
