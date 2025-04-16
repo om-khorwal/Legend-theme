@@ -1,0 +1,81 @@
+{{ 'bestseller.css' | asset_url | stylesheet_tag }}
+<div class="product-grid-wrapper">
+  <h2>{{ section.settings.heading }}</h2>
+  <div class="product-grid">
+    {% for block in section.blocks %}
+      <div class="product-card">
+        <div class="image-wrapper">
+          <img
+            src="{{ block.settings.product_image | image_url: width: 400 }}"
+            alt="{{ block.settings.title }}"
+            width="400"
+            height="400"
+          >
+          {% if block.settings.discount %}
+            <span class="discount">{{ block.settings.discount }}% OFF</span>
+          {% endif %}
+          {% if block.settings.discount %}
+            <span class="discount">{{ block.settings.discount }}% OFF</span>
+          {% endif %}
+        </div>
+        <h4>{{ block.settings.title }}</h4>
+        <p class="price">{{ block.settings.price }}</p>
+        <p class="variant">{{ block.settings.variant }}</p>
+        <button class="add-cart-btn">Add to Cart</button>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Best Sellers",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Best Sellers"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product Title"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Product Price"
+        },
+        {
+          "type": "text",
+          "id": "variant",
+          "label": "Variant (Size/Type)"
+        },
+        {
+          "type": "text",
+          "id": "discount",
+          "label": "Discount (%)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Best Sellers"
+    }
+  ]
+}
+{% endschema %}
