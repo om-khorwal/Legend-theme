@@ -69,4 +69,30 @@
     padding: 8px 12px;
     border-radius: 4px;
   }
+  .product-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+  }
+  
+  .product-card {
+    min-width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    background: #fff;
+  }
+  
+  .image-carousel {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+  }
+  
+  .image-carousel img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+  }
   

@@ -1,3 +1,16 @@
+{{ 'bestseller.css' | asset_url | stylesheet_tag }}
+{{ 'bestseller.js' | asset_url | defer script_tag }}
+
+{% assign collection = collections[section.settings.bestsellers_collection] %}
+{% assign new_arrivals_collection = collections[section.settings.new_arrivals_collection] %}
+
+{% if collection == blank %}
+  {% assign collection = collections.all %}
+{% endif %}
+
+{% if new_arrivals_collection == blank %}
+  {% assign new_arrivals_collection = collections.all %}
+{% endif %}
 <section class="product-section">
   <h2 class="main-heading">{{ section.settings.heading }}</h2>
 
@@ -50,7 +63,6 @@
     </div>
   </div>
 </section>
-
 {% schema %}
 {
   "name": "Product Tabs",
