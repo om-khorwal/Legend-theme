@@ -111,29 +111,11 @@
       "collection": {
         "type": "collection",
         "settings": {
-          "title": "Heading Collection"
+          "title": "Bunnaiwala's Collection"
         }
       },
       "bestseller": {
         "type": "bestseller",
-        "blocks": {
-          "product_card_L4RgqP": {
-            "type": "product_card",
-            "settings": {
-              "category": "new",
-              "title": "Kurta",
-              "price": "1200",
-              "variant": "XL/Brown",
-              "discount": "12",
-              "image_1": "shopify://shop_images/4178c698-2c30-4341-8dc3-72ae2988cf9a1696023508750OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta2.webp",
-              "image_2": "shopify://shop_images/2b27d71e-d434-42cd-8b33-5d809efbf28d1696023508645OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta3.webp",
-              "image_3": "shopify://shop_images/2a9eae99-a91c-41ff-b1bc-d50e304a24e71696023508727OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta4.webp"
-            }
-          }
-        },
-        "block_order": [
-          "product_card_L4RgqP"
-        ],
         "settings": {}
       }
     },
