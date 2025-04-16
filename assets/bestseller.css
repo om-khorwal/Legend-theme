@@ -1,11 +1,33 @@
-.product-grid-wrapper {
+.tabs-wrapper {
     padding: 2rem;
-    background-color: #f7f7f7;
   }
   
-  .product-grid-wrapper h2 {
-    text-align: center;
-    margin-bottom: 2rem;
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .tab-btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background: #eee;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .tab-btn.active {
+    background: black;
+    color: white;
+  }
+  
+  .tab-content {
+    display: none;
+  }
+  
+  .tab-content.active {
+    display: block;
   }
   
   .product-grid {
@@ -16,26 +38,16 @@
   
   .product-card {
     background: #fff;
-    border-radius: 8px;
     padding: 1rem;
-    position: relative;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
     text-align: center;
-    transition: transform 0.3s;
-  }
-  
-  .product-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .image-wrapper {
     position: relative;
   }
   
-  .image-wrapper img {
+  .product-card img {
     width: 100%;
     height: auto;
-    border-radius: 6px;
   }
   
   .discount {
@@ -43,34 +55,18 @@
     top: 10px;
     right: 10px;
     background: #ff3e3e;
-    color: white;
-    padding: 5px 8px;
+    color: #fff;
+    padding: 5px;
     border-radius: 50px;
     font-size: 12px;
   }
   
-  .price {
-    font-weight: bold;
-    margin: 0.5rem 0;
-    color: #000;
-  }
-  
-  .variant {
-    color: #555;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-  
   .add-cart-btn {
-    background: #000;
+    margin-top: 0.5rem;
+    background: black;
     color: white;
     border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+    padding: 8px 12px;
     border-radius: 4px;
-  }
-  
-  .add-cart-btn:hover {
-    background: #333;
   }
   
