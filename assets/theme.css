@@ -102,7 +102,7 @@ body {
   .icon-wrapper {
     display: flex;
     align-items: center;
-    gap: 2rem; ;
+    gap: 1rem; ;
   }
   
   .icon-item {
