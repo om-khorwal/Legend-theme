@@ -94,7 +94,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 40px;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2rem solid #ffff;
   }
   
   .icon-wrapper {
