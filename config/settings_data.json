@@ -111,11 +111,196 @@
       "collection": {
         "type": "collection",
         "settings": {
-          "title": "Bunnaiwala's Collection"
+          "title": "Heading Collection"
         }
       },
       "bestseller": {
         "type": "bestseller",
+        "blocks": {
+          "product_card_U6Yd9A": {
+            "type": "product_card",
+            "settings": {
+              "category": "best",
+              "title": "sare",
+              "price": "23",
+              "variant": "xl",
+              "discount": "22",
+              "image_1": "shopify://shop_images/2a9eae99-a91c-41ff-b1bc-d50e304a24e71696023508727OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta4.webp",
+              "image_2": "shopify://shop_images/4178c698-2c30-4341-8dc3-72ae2988cf9a1696023508750OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta2.webp"
+            }
+          },
+          "product_card_NbiL8E": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_4jrjNb": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_NAtjV8": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_itF3i4": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_dDLDkr": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_WwRNRe": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_KwJPpn": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_PKTjeM": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_yEMfjc": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_LmCtFg": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_LmDc98": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_xcXnap": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_Qhi7JN": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_yiMkqa": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "",
+              "price": "",
+              "variant": "",
+              "discount": ""
+            }
+          },
+          "product_card_L4RgqP": {
+            "type": "product_card",
+            "settings": {
+              "category": "new",
+              "title": "Kurta",
+              "price": "1200",
+              "variant": "XL/Brown",
+              "discount": "12",
+              "image_1": "shopify://shop_images/4178c698-2c30-4341-8dc3-72ae2988cf9a1696023508750OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta2.webp",
+              "image_2": "shopify://shop_images/2b27d71e-d434-42cd-8b33-5d809efbf28d1696023508645OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta3.webp",
+              "image_3": "shopify://shop_images/2a9eae99-a91c-41ff-b1bc-d50e304a24e71696023508727OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta4.webp"
+            }
+          }
+        },
+        "block_order": [
+          "product_card_U6Yd9A",
+          "product_card_NbiL8E",
+          "product_card_4jrjNb",
+          "product_card_NAtjV8",
+          "product_card_itF3i4",
+          "product_card_dDLDkr",
+          "product_card_WwRNRe",
+          "product_card_KwJPpn",
+          "product_card_PKTjeM",
+          "product_card_yEMfjc",
+          "product_card_LmCtFg",
+          "product_card_LmDc98",
+          "product_card_xcXnap",
+          "product_card_Qhi7JN",
+          "product_card_yiMkqa",
+          "product_card_L4RgqP"
+        ],
         "settings": {}
       }
     },
