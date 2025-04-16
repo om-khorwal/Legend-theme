@@ -1,0 +1,27 @@
+<section class="collection-heading">
+  <div>
+    <h2>
+      {{ section.settings.title }}
+    </h2>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "collection-heading",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dynamic Heading",
+      "category": "Basic"
+    }
+  ]
+}
+{% endschema %}
