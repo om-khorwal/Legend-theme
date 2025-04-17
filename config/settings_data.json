@@ -117,6 +117,39 @@
       "bestseller": {
         "type": "bestseller",
         "blocks": {
+          "bestseller_dBaDnR": {
+            "type": "bestseller",
+            "settings": {
+              "title": "gdgd",
+              "price": "56",
+              "variant": "gfhh",
+              "button_text": "Add to Cart",
+              "image_1": "shopify://shop_images/4178c698-2c30-4341-8dc3-72ae2988cf9a1696023508750OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta2.webp",
+              "image_2": "shopify://shop_images/2a9eae99-a91c-41ff-b1bc-d50e304a24e71696023508727OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta4.webp"
+            }
+          },
+          "bestseller_MRfyEg": {
+            "type": "bestseller",
+            "settings": {
+              "title": "jjtt",
+              "price": "54",
+              "variant": "gf",
+              "button_text": "Add to Cart",
+              "image_1": "shopify://shop_images/2a9eae99-a91c-41ff-b1bc-d50e304a24e71696023508727OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta4.webp",
+              "image_2": "shopify://shop_images/4178c698-2c30-4341-8dc3-72ae2988cf9a1696023508750OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta2.webp"
+            }
+          },
+          "bestseller_Kw4QVG": {
+            "type": "bestseller",
+            "settings": {
+              "title": "bbbbbbbb",
+              "price": "6546",
+              "variant": "gfdg",
+              "button_text": "Add to Cart",
+              "image_1": "shopify://shop_images/2a9eae99-a91c-41ff-b1bc-d50e304a24e71696023508727OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta4.webp",
+              "image_2": "shopify://shop_images/4178c698-2c30-4341-8dc3-72ae2988cf9a1696023508750OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta2.webp"
+            }
+          },
           "bestseller_UXA3nQ": {
             "type": "bestseller",
             "settings": {
@@ -163,6 +196,9 @@
           }
         },
         "block_order": [
+          "bestseller_dBaDnR",
+          "bestseller_MRfyEg",
+          "bestseller_Kw4QVG",
           "bestseller_UXA3nQ",
           "bestseller_WH77Mi",
           "bestseller_BnqpnB",
