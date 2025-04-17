@@ -1,4 +1,6 @@
 .product-tabs {
+  width: 80%;
+  margin: 0 auto; /* Centers the section */
   padding: 40px 20px;
 }
 
