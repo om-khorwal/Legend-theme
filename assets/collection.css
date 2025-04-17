@@ -1,6 +1,4 @@
 .collection-heading{
-    font-size: 1.5rem;
-    font-weight: bold;
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
@@ -17,8 +15,8 @@
 .collection-heading h2{
     color: #181818;
     text-decoration: none;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 2.5rem;
+    font-weight: 900;
     margin-top : 1rem;
     padding: 0;
     text-align: center;
