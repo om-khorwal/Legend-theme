@@ -29,6 +29,8 @@
   overflow-x: auto;          /* Enable horizontal scroll */
   padding: 20px 0;
   scroll-behavior: smooth;
+  justify-content: center;
+
 }
 
 .tab-content.active {
