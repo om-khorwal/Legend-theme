@@ -10,7 +10,14 @@
     {% for block in section.blocks %}
       {% if block.type == 'bestseller' %}
         <div class="product-card">
-          <img src="{{ block.settings.image | image_url: width: 400 }}" alt="Product Image" width="400" height="400" />
+          <div class="image-carousel">
+            {% for i in (1..6) %}
+              {% assign img = block.settings["image_" | append: i ] %}
+              {% if img %}
+                <img src="{{ img | image_url: width: 300 }}" alt="Product Image {{ i }}" width="300" height="300" />
+              {% endif %}
+            {% endfor %}
+          </div>
           <h4>{{ block.settings.title }}</h4>
           <p class="price">{{ block.settings.price }}</p>
           <p class="variant">{{ block.settings.variant }}</p>
@@ -24,7 +31,14 @@
     {% for block in section.blocks %}
       {% if block.type == 'newarrival' %}
         <div class="product-card">
-          <img src="{{ block.settings.image | image_url: width: 400 }}" alt="Product Image" width="400" height="400" />
+          <div class="image-carousel">
+            {% for i in (1..6) %}
+              {% assign img = block.settings["image_" | append: i ] %}
+              {% if img %}
+                <img src="{{ img | image_url: width: 300 }}" alt="Product Image {{ i }}" width="300" height="300" />
+              {% endif %}
+            {% endfor %}
+          </div>
           <h4>{{ block.settings.title }}</h4>
           <p class="price">{{ block.settings.price }}</p>
           <p class="variant">{{ block.settings.variant }}</p>
@@ -37,8 +51,8 @@
 
 <script>
   function switchTab(id) {
-    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.tab-button').forEach((btn) => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach((tab) => tab.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     event.target.classList.add('active');
   }
