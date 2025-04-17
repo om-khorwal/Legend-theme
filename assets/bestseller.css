@@ -1,4 +1,4 @@
-webkit-scrollbar {
+.image-carousel::-webkit-scrollbar {
   display: none;
 }
 .product-tabs {
