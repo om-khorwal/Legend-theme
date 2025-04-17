@@ -1,102 +1,123 @@
 {{ 'bestseller.css' | asset_url | stylesheet_tag }}
 
-{% assign collection = collections[section.settings.bestsellers_collection] %}
-{% assign new_arrivals_collection = collections[section.settings.new_arrivals_collection] %}
-
-{% if collection == blank %}
-  {% assign collection = collections.all %}
-{% endif %}
-
-{% if new_arrivals_collection == blank %}
-  {% assign new_arrivals_collection = collections.all %}
-{% endif %}
-<section class="product-section">
-  <h2 class="main-heading">{{ section.settings.heading }}</h2>
-
+<div class="product-tabs">
   <div class="tabs">
-    <button class="tab active" onclick="switchTab('bestsellers')">Bestsellers</button>
-    <button class="tab" onclick="switchTab('new-arrivals')">New Arrivals</button>
+    <button class="tab-button active" onclick="switchTab('bestsellers')">Bestsellers</button>
+    <button class="tab-button" onclick="switchTab('new-arrivals')">New Arrivals</button>
   </div>
 
-  <div class="product-scroll-container">
-    <!-- Bestsellers -->
-    <div id="bestsellers" class="product-scroll active">
-      {% for product in collections[section.settings.bestsellers_collection].products %}
+  <div id="bestsellers" class="tab-content active">
+    {% for block in section.blocks %}
+      {% if block.type == 'bestseller' %}
         <div class="product-card">
-          <div class="image-carousel">
-            {% for image in product.images limit: 6 %}
-              <img
-                src="{{ image | img_url: '400x' }}"
-                alt="{{ product.title }}"
-                width="400"
-                height="400"
-              >
-            {% endfor %}
-          </div>
-          <h3>{{ product.title }}</h3>
-          <p class="price">{{ product.price | money }}</p>
-          <a href="{{ product.url }}" class="add-to-cart-btn">View Product</a>
+          <img src="{{ block.settings.image | image_url: width: 400 }}" alt="Product Image" width="400" height="400" />
+          <h4>{{ block.settings.title }}</h4>
+          <p class="price">{{ block.settings.price }}</p>
+          <p class="variant">{{ block.settings.variant }}</p>
+          <button class="add-to-cart">{{ block.settings.button_text }}</button>
         </div>
-      {% endfor %}
-    </div>
-
-    <!-- New Arrivals -->
-    <div id="new-arrivals" class="product-scroll">
-      {% for product in collections[section.settings.new_arrivals_collection].products %}
-        <div class="product-card">
-          <div class="image-carousel">
-            {% for image in product.images limit: 6 %}
-              <img
-                src="{{ image | img_url: '400x' }}"
-                alt="{{ product.title }}"
-                width="400"
-                height="400"
-              >
-            {% endfor %}
-          </div>
-          <h3>{{ product.title }}</h3>
-          <p class="price">{{ product.price | money }}</p>
-          <a href="{{ product.url }}" class="add-to-cart-btn">View Product</a>
-        </div>
-      {% endfor %}
-    </div>
+      {% endif %}
+    {% endfor %}
   </div>
-</section>
+
+  <div id="new-arrivals" class="tab-content">
+    {% for block in section.blocks %}
+      {% if block.type == 'newarrival' %}
+        <div class="product-card">
+          <img src="{{ block.settings.image | image_url: width: 400 }}" alt="Product Image" width="400" height="400" />
+          <h4>{{ block.settings.title }}</h4>
+          <p class="price">{{ block.settings.price }}</p>
+          <p class="variant">{{ block.settings.variant }}</p>
+          <button class="add-to-cart">{{ block.settings.button_text }}</button>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  function switchTab(id) {
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
 {% schema %}
 {
   "name": "Product Tabs",
-  "settings": [
+  "max_blocks": 16,
+  "blocks": [
     {
-      "type": "collection",
-      "id": "bestsellers_collection",
-      "label": "Bestsellers Collection"
+      "type": "bestseller",
+      "name": "Bestseller Product",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product Title"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price"
+        },
+        {
+          "type": "text",
+          "id": "variant",
+          "label": "Variant (Size/Type)"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Add to Cart Text",
+          "default": "Add to Cart"
+        }
+      ]
     },
     {
-      "type": "collection",
-      "id": "new_arrivals_collection",
-      "label": "New Arrivals Collection"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Our Products"
+      "type": "newarrival",
+      "name": "New Arrival Product",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product Title"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price"
+        },
+        {
+          "type": "text",
+          "id": "variant",
+          "label": "Variant (Size/Type)"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Add to Cart Text",
+          "default": "Add to Cart"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Product Tabs"
+      "name": "Product Tab Section"
     }
   ]
 }
 {% endschema %}
-
-<script>
-  function switchTab(tabId) {
-    document.querySelectorAll('.tab').forEach((tab) => tab.classList.remove('active'));
-    document.querySelectorAll('.product-scroll').forEach((grid) => grid.classList.remove('active'));
-
-    document.getElementById(tabId).classList.add('active');
-    event.target.classList.add('active');
-  }
-</script>
