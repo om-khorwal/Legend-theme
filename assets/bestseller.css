@@ -42,7 +42,6 @@
 .product-card {
   flex: 0 0 auto;            /* Prevent shrinking/wrapping */
   width: 250px;
-  border: 1px solid #ddd;
   padding: 15px;
   background: #fff;
   text-align: center;
