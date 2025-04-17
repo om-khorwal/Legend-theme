@@ -17,8 +17,7 @@
               {% if img %}
                 <img src="{{ img | image_url: width: 300 }}" alt="Product Image {{ i }}" width="300" height="300" />
               {% endif %}
-            {% endfor %}
-            
+            {% endfor %}            
           </div>
           <h4>{{ block.settings.title }}</h4>
           <p class="price">{{ block.settings.price }}</p>
@@ -35,13 +34,11 @@
         <div class="product-card">
           <div class="image-carousel">
             {% for i in (1..6) %}
-              {% assign image_key = "image_" | append: i %}
-              {% assign img = block.settings[image_key] %}
+              {% assign img = block.settings["image_" | append: i ] %}
               {% if img %}
                 <img src="{{ img | image_url: width: 300 }}" alt="Product Image {{ i }}" width="300" height="300" />
               {% endif %}
             {% endfor %}
-            
           </div>
           <h4>{{ block.settings.title }}</h4>
           <p class="price">{{ block.settings.price }}</p>
@@ -55,8 +52,8 @@
 
 <script>
   function switchTab(id) {
-    document.querySelectorAll('.tab-button').forEach((btn) => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach((tab) => tab.classList.remove('active'));
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     event.target.classList.add('active');
   }
@@ -72,11 +69,6 @@
       "name": "Bestseller Product",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Product Image"
-        },
-        {
           "type": "text",
           "id": "title",
           "label": "Product Title"
@@ -84,19 +76,25 @@
         {
           "type": "text",
           "id": "price",
-          "label": "Price"
+          "label": "Product Price"
         },
         {
           "type": "text",
           "id": "variant",
-          "label": "Variant (Size/Type)"
+          "label": "Product Variant"
         },
         {
           "type": "text",
           "id": "button_text",
-          "label": "Add to Cart Text",
+          "label": "Button Text",
           "default": "Add to Cart"
-        }
+        },
+        { "type": "image_picker", "id": "image_1", "label": "Image 1" },
+        { "type": "image_picker", "id": "image_2", "label": "Image 2" },
+        { "type": "image_picker", "id": "image_3", "label": "Image 3" },
+        { "type": "image_picker", "id": "image_4", "label": "Image 4" },
+        { "type": "image_picker", "id": "image_5", "label": "Image 5" },
+        { "type": "image_picker", "id": "image_6", "label": "Image 6" }
       ]
     },
     {
@@ -104,11 +102,6 @@
       "name": "New Arrival Product",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Product Image"
-        },
-        {
           "type": "text",
           "id": "title",
           "label": "Product Title"
@@ -116,25 +109,31 @@
         {
           "type": "text",
           "id": "price",
-          "label": "Price"
+          "label": "Product Price"
         },
         {
           "type": "text",
           "id": "variant",
-          "label": "Variant (Size/Type)"
+          "label": "Product Variant"
         },
         {
           "type": "text",
           "id": "button_text",
-          "label": "Add to Cart Text",
+          "label": "Button Text",
           "default": "Add to Cart"
-        }
+        },
+        { "type": "image_picker", "id": "image_1", "label": "Image 1" },
+        { "type": "image_picker", "id": "image_2", "label": "Image 2" },
+        { "type": "image_picker", "id": "image_3", "label": "Image 3" },
+        { "type": "image_picker", "id": "image_4", "label": "Image 4" },
+        { "type": "image_picker", "id": "image_5", "label": "Image 5" },
+        { "type": "image_picker", "id": "image_6", "label": "Image 6" }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Product Tab Section"
+      "name": "Product Tabs"
     }
   ]
 }
