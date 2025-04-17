@@ -117,6 +117,17 @@
       "bestseller": {
         "type": "bestseller",
         "blocks": {
+          "newarrival_JjJ6i4": {
+            "type": "newarrival",
+            "settings": {
+              "title": "fdgbcbg",
+              "price": "4535",
+              "variant": "fsdfsd",
+              "button_text": "Add to Cart",
+              "image_1": "shopify://shop_images/2a9eae99-a91c-41ff-b1bc-d50e304a24e71696023508727OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta4.webp",
+              "image_2": "shopify://shop_images/4178c698-2c30-4341-8dc3-72ae2988cf9a1696023508750OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta2.webp"
+            }
+          },
           "bestseller_dBaDnR": {
             "type": "bestseller",
             "settings": {
@@ -196,6 +207,7 @@
           }
         },
         "block_order": [
+          "newarrival_JjJ6i4",
           "bestseller_dBaDnR",
           "bestseller_MRfyEg",
           "bestseller_Kw4QVG",
