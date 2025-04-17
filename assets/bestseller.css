@@ -150,7 +150,9 @@
   scroll-behavior: smooth;
   justify-content: center;
 }
-
+.tab-content::-webkit-scrollbar{
+  display: none;
+}
 .tab-content.active {
   display: flex; /* only show active tab */
 }
