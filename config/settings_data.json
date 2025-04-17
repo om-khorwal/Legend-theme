@@ -117,6 +117,39 @@
       "bestseller": {
         "type": "bestseller",
         "blocks": {
+          "bestseller_UXA3nQ": {
+            "type": "bestseller",
+            "settings": {
+              "title": "dsfdf",
+              "price": "343",
+              "variant": "fdsf",
+              "button_text": "Add to Cart",
+              "image_1": "shopify://shop_images/Banner_1_1.jpg",
+              "image_2": "shopify://shop_images/4178c698-2c30-4341-8dc3-72ae2988cf9a1696023508750OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta2.webp"
+            }
+          },
+          "bestseller_WH77Mi": {
+            "type": "bestseller",
+            "settings": {
+              "title": "fghgd",
+              "price": "34",
+              "variant": "gfgf",
+              "button_text": "Add to Cart",
+              "image_1": "shopify://shop_images/4178c698-2c30-4341-8dc3-72ae2988cf9a1696023508750OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta2.webp",
+              "image_2": "shopify://shop_images/2b27d71e-d434-42cd-8b33-5d809efbf28d1696023508645OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta3.webp"
+            }
+          },
+          "bestseller_BnqpnB": {
+            "type": "bestseller",
+            "settings": {
+              "title": "gfg",
+              "price": "4",
+              "variant": "g4tg",
+              "button_text": "Add to Cart",
+              "image_1": "shopify://shop_images/2a9eae99-a91c-41ff-b1bc-d50e304a24e71696023508727OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta4.webp",
+              "image_2": "shopify://shop_images/4178c698-2c30-4341-8dc3-72ae2988cf9a1696023508750OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta2.webp"
+            }
+          },
           "bestseller_dH97B3": {
             "type": "bestseller",
             "settings": {
@@ -130,11 +163,14 @@
           }
         },
         "block_order": [
+          "bestseller_UXA3nQ",
+          "bestseller_WH77Mi",
+          "bestseller_BnqpnB",
           "bestseller_dH97B3"
         ],
         "settings": {
           "font_family": "kaushan_script_n4",
-          "text_color": "#ff0000"
+          "text_color": "#000000"
         }
       }
     },
