@@ -22,10 +22,31 @@
               {% endif %}
             {% endfor %}
           </div>
-          <h4>{{ block.settings.title }}</h4>
-          <p class="price">{{ block.settings.price }}</p>
-          <p class="variant">{{ block.settings.variant }}</p>
-          <button class="add-to-cart">{{ block.settings.button_text }}</button>
+          <h4 style="font-family: {{ section.settings.title_font }}; color: {{ section.settings.title_color }}">
+            {{ block.settings.title }}
+          </h4>
+          <p
+            class="price"
+            style="font-family: {{ section.settings.price_font }}; color: {{ section.settings.price_color }}"
+          >
+            {{ block.settings.price }}
+          </p>
+          <p
+            class="variant"
+            style="font-family: {{ section.settings.variant_font }}; color: {{ section.settings.variant_color }}"
+          >
+            {% assign variants = block.settings.variant | split: ',' %}
+            {% for item in variants %}
+              <span>{{ item | strip }}</span>
+              {%- unless forloop.last %}, {% endunless %}
+            {% endfor %}
+          </p>
+          <button
+            class="add-to-cart"
+            style="font-family: {{ section.settings.button_font }}; background-color: {{ section.settings.button_bg }}; color: {{ section.settings.button_color }}"
+          >
+            {{ block.settings.button_text }}
+          </button>
         </div>
       {% endif %}
     {% endfor %}
@@ -44,10 +65,31 @@
               {% endif %}
             {% endfor %}
           </div>
-          <h4>{{ block.settings.title }}</h4>
-          <p class="price">{{ block.settings.price }}</p>
-          <p class="variant">{{ block.settings.variant }}</p>
-          <button class="add-to-cart">{{ block.settings.button_text }}</button>
+          <h4 style="font-family: {{ section.settings.title_font }}; color: {{ section.settings.title_color }}">
+            {{ block.settings.title }}
+          </h4>
+          <p
+            class="price"
+            style="font-family: {{ section.settings.price_font }}; color: {{ section.settings.price_color }}"
+          >
+            {{ block.settings.price }}
+          </p>
+          <p
+            class="variant"
+            style="font-family: {{ section.settings.variant_font }}; color: {{ section.settings.variant_color }}"
+          >
+            {% assign variants = block.settings.variant | split: ',' %}
+            {% for item in variants %}
+              <span>{{ item | strip }}</span>
+              {%- unless forloop.last %}, {% endunless %}
+            {% endfor %}
+          </p>
+          <button
+            class="add-to-cart"
+            style="font-family: {{ section.settings.button_font }}; background-color: {{ section.settings.button_bg }}; color: {{ section.settings.button_color }}"
+          >
+            {{ block.settings.button_text }}
+          </button>
         </div>
       {% endif %}
     {% endfor %}
@@ -56,8 +98,8 @@
 
 <script>
   function switchTab(id) {
-    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.tab-button').forEach((btn) => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach((tab) => tab.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     event.target.classList.add('active');
   }
@@ -77,6 +119,60 @@
       "type": "color",
       "id": "text_color",
       "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "font_picker",
+      "id": "title_font",
+      "label": "Title Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "font_picker",
+      "id": "price_font",
+      "label": "Price Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Price Color",
+      "default": "#000000"
+    },
+    {
+      "type": "font_picker",
+      "id": "variant_font",
+      "label": "Variant Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "color",
+      "id": "variant_color",
+      "label": "Variant Color",
+      "default": "#000000"
+    },
+    {
+      "type": "font_picker",
+      "id": "button_font",
+      "label": "Button Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button Background",
       "default": "#000000"
     }
   ],

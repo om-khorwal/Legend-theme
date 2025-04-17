@@ -1,6 +1,10 @@
 .image-carousel::-webkit-scrollbar {
   display: none;
 }
+.variant span {
+  margin-right: 4px;
+}
+
 .product-tabs {
   width: 80%;
   margin: 0 auto; /* Centers the section */
