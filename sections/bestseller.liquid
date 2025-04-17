@@ -104,7 +104,29 @@
     event.target.classList.add('active');
   }
 </script>
+<script>
+  function showTab(tabName) {
+    const tabs = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-button');
 
+    tabs.forEach(tab => tab.style.display = 'none');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById(tabName).style.display = 'block';
+    event.target.classList.add('active');
+  }
+
+  function addItemToCart(variantId) {
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1 })
+    }).then(res => res.json())
+      .then(data => {
+        alert("Item added to cart!");
+      });
+  }
+</script>
 {% schema %}
 {
   "name": "Product Tabs",
