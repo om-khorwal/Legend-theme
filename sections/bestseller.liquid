@@ -22,7 +22,7 @@
               {% endif %}
             {% endfor %}
           </div>
-          <h4 style="font-family: {{ section.settings.title_font }}; color: {{ section.settings.title_color }}">
+          <h4 style="font-family: {{ section.settings.title_font.family }}; color: {{ section.settings.title_color }}">
             {{ block.settings.title }}
           </h4>
           <p
@@ -65,7 +65,7 @@
               {% endif %}
             {% endfor %}
           </div>
-          <h4 style="font-family: {{ section.settings.title_font }}; color: {{ section.settings.title_color }}">
+          <h4 style="font-family: {{ section.settings.title_font.family }}; color: {{ section.settings.title_color }}">
             {{ block.settings.title }}
           </h4>
           <p
