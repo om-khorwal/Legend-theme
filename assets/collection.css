@@ -14,3 +14,14 @@
     margin: 0 auto;
     max-width: 80%;
 }
+.collection-heading h2{
+    color: #181818;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top : 1rem;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
