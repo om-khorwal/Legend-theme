@@ -27,7 +27,7 @@
 .tab-content {
   display: flex;
   flex-wrap: nowrap;         /* Don't wrap, scroll horizontally */
-  gap: 20px;
+  gap: 10px;
   overflow-x: auto;          /* Enable horizontal scroll */
   padding: 20px 0;
   scroll-behavior: smooth;
@@ -58,7 +58,7 @@
 }
 .product-card p {
   font-size: 1.2rem;
-  margin: 0;
+  margin: 5px;
 }
 
 
@@ -74,6 +74,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 100%;
 }
 .image-carousel {
   display: flex;
