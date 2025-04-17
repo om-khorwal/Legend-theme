@@ -117,23 +117,25 @@
       "bestseller": {
         "type": "bestseller",
         "blocks": {
-          "product_card_wK4wek": {
-            "type": "product_card",
+          "bestseller_dH97B3": {
+            "type": "bestseller",
             "settings": {
-              "category": "best",
-              "title": "sdasad",
-              "price": "2323",
-              "variant": "XL",
-              "discount": "23",
-              "image_1": "shopify://shop_images/4178c698-2c30-4341-8dc3-72ae2988cf9a1696023508750OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta2.webp",
-              "image_2": "shopify://shop_images/2b27d71e-d434-42cd-8b33-5d809efbf28d1696023508645OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta3.webp"
+              "title": "fadsfsdfs",
+              "price": "323",
+              "variant": "dasdad",
+              "button_text": "Add to Cart",
+              "image_1": "shopify://shop_images/2a9eae99-a91c-41ff-b1bc-d50e304a24e71696023508727OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta4.webp",
+              "image_2": "shopify://shop_images/4178c698-2c30-4341-8dc3-72ae2988cf9a1696023508750OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta2.webp"
             }
           }
         },
         "block_order": [
-          "product_card_wK4wek"
+          "bestseller_dH97B3"
         ],
-        "settings": {}
+        "settings": {
+          "font_family": "kaushan_script_n4",
+          "text_color": "#ff0000"
+        }
       }
     },
     "content_for_index": []
