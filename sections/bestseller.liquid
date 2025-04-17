@@ -1,131 +1,46 @@
-{{ 'bestseller.css' | asset_url | stylesheet_tag }}
-
-<div
-  class="product-tabs"
-  style="font-family: {{ section.settings.font_family }}, sans-serif; color: {{ section.settings.text_color }}"
->
-  <div class="tabs">
-    <button class="tab-button active" onclick="switchTab('bestsellers')">Bestsellers</button>
-    <button class="tab-button" onclick="switchTab('new-arrivals')">New Arrivals</button>
-  </div>
-
-  <div id="bestsellers" class="tab-content active">
-    {% for block in section.blocks %}
-      {% if block.type == 'bestseller' %}
-        <div class="product-card">
-          <div class="image-carousel">
-            {% for i in (1..6) %}
-              {% assign image_key = 'image_' | append: i %}
-              {% assign img = block.settings[image_key] %}
-              {% if img %}
-                <img src="{{ img | image_url: width: 300 }}" alt="Product Image {{ i }}" width="300" height="300">
-              {% endif %}
-            {% endfor %}
-          </div>
-          <h4 style="font-family: {{ section.settings.title_font.family }}; color: {{ section.settings.title_color }}">
-            {{ block.settings.title }}
-          </h4>
-          <p
-            class="price"
-            style="font-family: {{ section.settings.price_font }}; color: {{ section.settings.price_color }}"
-          >
-            {{ block.settings.price }}
-          </p>
-          <p
-            class="variant"
-            style="font-family: {{ section.settings.variant_font }}; color: {{ section.settings.variant_color }}"
-          >
-            {% assign variants = block.settings.variant | split: ',' %}
-            {% for item in variants %}
-              <span>{{ item | strip }}</span>
-              {%- unless forloop.last %}, {% endunless %}
-            {% endfor %}
-          </p>
-          <button
-            class="add-to-cart"
-            style="font-family: {{ section.settings.button_font }}; background-color: {{ section.settings.button_bg }}; color: {{ section.settings.button_color }}"
-          >
-            {{ block.settings.button_text }}
-          </button>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-
-  <div id="new-arrivals" class="tab-content">
-    {% for block in section.blocks %}
-      {% if block.type == 'newarrival' %}
-        <div class="product-card">
-          <div class="image-carousel">
-            {% for i in (1..6) %}
-              {% assign image_key = 'image_' | append: i %}
-              {% assign img = block.settings[image_key] %}
-              {% if img %}
-                <img src="{{ img | image_url: width: 300 }}" alt="Product Image {{ i }}" width="300" height="300">
-              {% endif %}
-            {% endfor %}
-          </div>
-          <h4 style="font-family: {{ section.settings.title_font.family }}; color: {{ section.settings.title_color }}">
-            {{ block.settings.title }}
-          </h4>
-          <p
-            class="price"
-            style="font-family: {{ section.settings.price_font }}; color: {{ section.settings.price_color }}"
-          >
-            {{ block.settings.price }}
-          </p>
-          <p
-            class="variant"
-            style="font-family: {{ section.settings.variant_font }}; color: {{ section.settings.variant_color }}"
-          >
-            {% assign variants = block.settings.variant | split: ',' %}
-            {% for item in variants %}
-              <span>{{ item | strip }}</span>
-              {%- unless forloop.last %}, {% endunless %}
-            {% endfor %}
-          </p>
-          <button
-            class="add-to-cart"
-            style="font-family: {{ section.settings.button_font }}; background-color: {{ section.settings.button_bg }}; color: {{ section.settings.button_color }}"
-          >
-            {{ block.settings.button_text }}
-          </button>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-</div>
-
-<script>
-  function switchTab(id) {
-    document.querySelectorAll('.tab-button').forEach((btn) => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach((tab) => tab.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    event.target.classList.add('active');
-  }
-</script>
-
 {% schema %}
 {
   "name": "Product Tabs",
   "settings": [
     {
-      "type": "font_picker",
+      "type": "header",
+      "content": "Tab Settings"
+    },
+    {
+      "type": "text",
+      "id": "bestseller_title",
+      "label": "Bestseller Tab Title",
+      "default": "Bestsellers"
+    },
+    {
+      "type": "text",
+      "id": "new_arrival_title",
+      "label": "New Arrival Tab Title",
+      "default": "New Arrivals"
+    },
+
+    {
+      "type": "header",
+      "content": "Typography Settings"
+    },
+
+    {
+      "type": "select",
       "id": "font_family",
       "label": "Font Family",
-      "default": "helvetica_n4"
+      "options": [
+        { "value": "Arial", "label": "Arial" },
+        { "value": "Helvetica", "label": "Helvetica" },
+        { "value": "Georgia", "label": "Georgia" },
+        { "value": "Times New Roman", "label": "Times New Roman" },
+        { "value": "Courier New", "label": "Courier New" }
+      ],
+      "default": "Arial"
     },
+
     {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#000000"
-    },
-    {
-      "type": "font_picker",
-      "id": "title_font",
-      "label": "Title Font",
-      "default": "helvetica_n4"
+      "type": "header",
+      "content": "Product Title Style"
     },
     {
       "type": "color",
@@ -134,87 +49,214 @@
       "default": "#000000"
     },
     {
-      "type": "font_picker",
-      "id": "price_font",
-      "label": "Price Font",
-      "default": "helvetica_n4"
+      "type": "range",
+      "id": "title_font_size",
+      "label": "Title Font Size",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "default": 18
+    },
+
+    {
+      "type": "header",
+      "content": "Price Style"
     },
     {
       "type": "color",
       "id": "price_color",
       "label": "Price Color",
-      "default": "#000000"
+      "default": "#333333"
     },
     {
-      "type": "font_picker",
-      "id": "variant_font",
-      "label": "Variant Font",
-      "default": "helvetica_n4"
+      "type": "range",
+      "id": "price_font_size",
+      "label": "Price Font Size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "default": 16
+    },
+
+    {
+      "type": "header",
+      "content": "Variant Style"
     },
     {
       "type": "color",
       "id": "variant_color",
-      "label": "Variant Color",
-      "default": "#000000"
+      "label": "Variant Text Color",
+      "default": "#444444"
     },
     {
-      "type": "font_picker",
-      "id": "button_font",
-      "label": "Button Font",
-      "default": "helvetica_n4"
+      "type": "range",
+      "id": "variant_font_size",
+      "label": "Variant Font Size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "default": 14
+    },
+
+    {
+      "type": "header",
+      "content": "Button Style"
     },
     {
       "type": "color",
-      "id": "button_color",
-      "label": "Button Color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
       "default": "#ffffff"
     },
     {
       "type": "color",
-      "id": "button_bg",
-      "label": "Button Background",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
       "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Button Font Size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "default": 14
     }
   ],
-  "max_blocks": 16,
   "blocks": [
     {
       "type": "bestseller",
       "name": "Bestseller Product",
       "settings": [
-        { "type": "text", "id": "title", "label": "Product Title" },
-        { "type": "text", "id": "price", "label": "Product Price" },
-        { "type": "text", "id": "variant", "label": "Product Variant" },
-        { "type": "text", "id": "button_text", "label": "Button Text", "default": "Add to Cart" },
-        { "type": "image_picker", "id": "image_1", "label": "Image 1" },
-        { "type": "image_picker", "id": "image_2", "label": "Image 2" },
-        { "type": "image_picker", "id": "image_3", "label": "Image 3" },
-        { "type": "image_picker", "id": "image_4", "label": "Image 4" },
-        { "type": "image_picker", "id": "image_5", "label": "Image 5" },
-        { "type": "image_picker", "id": "image_6", "label": "Image 6" }
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Bestseller Product"
+        }
       ]
     },
     {
       "type": "newarrival",
       "name": "New Arrival Product",
       "settings": [
-        { "type": "text", "id": "title", "label": "Product Title" },
-        { "type": "text", "id": "price", "label": "Product Price" },
-        { "type": "text", "id": "variant", "label": "Product Variant" },
-        { "type": "text", "id": "button_text", "label": "Button Text", "default": "Add to Cart" },
-        { "type": "image_picker", "id": "image_1", "label": "Image 1" },
-        { "type": "image_picker", "id": "image_2", "label": "Image 2" },
-        { "type": "image_picker", "id": "image_3", "label": "Image 3" },
-        { "type": "image_picker", "id": "image_4", "label": "Image 4" },
-        { "type": "image_picker", "id": "image_5", "label": "Image 5" },
-        { "type": "image_picker", "id": "image_6", "label": "Image 6" }
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select New Arrival Product"
+        }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Product Tabs"
+      "name": "Product Tabs",
+      "category": "Custom"
     }
   ]
 }
 {% endschema %}
+
+<div class="product-tabs">
+  <div class="tab-buttons">
+    <button onclick="showTab('bestseller')" class="tab-button active">{{ settings.bestseller_title }}</button>
+    <button onclick="showTab('newarrival')" class="tab-button">{{ settings.new_arrival_title }}</button>
+  </div>
+
+  <div id="bestseller" class="tab-content active">
+    <div class="product-list">
+      {% for block in section.blocks %}
+        {% if block.type == 'bestseller' %}
+          {% assign product = block.settings.product %}
+          {% if product != blank %}
+            {% assign product = all_products[product] %}
+            <div class="product-card">
+              {% if product.images.size > 0 %}
+                <div class="carousel">
+                  {% for image in product.images %}
+                    <img src="{{ image | img_url: 'medium' }}" style="width:100%; margin-bottom: 10px;"
+                    width="100" height="auto">
+                  {% endfor %}
+                </div>
+              {% endif %}
+              <div class="title">{{ product.title }}</div>
+              <div class="price">{{ product.price | money }}</div>
+              {% if product.variants.size > 1 %}
+                <div class="variant">
+                  {% for variant in product.variants %}
+                    {{ variant.title -}}
+                    {%- unless forloop.last %}, {% endunless %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+              <button class="btn-add" onclick="addItemToCart({{ product.variants.first.id }})">Add to Cart</button>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="newarrival" class="tab-content" style="display:none;">
+    <div class="product-list">
+      {% for block in section.blocks %}
+        {% if block.type == 'newarrival' %}
+          {% assign product = block.settings.product %}
+          {% if product != blank %}
+            {% assign product = all_products[product] %}
+            <div class="product-card">
+              {% if product.images.size > 0 %}
+                <div class="carousel">
+                  {% for image in product.images %}
+                    <img
+                      src="{{ image | img_url: 'medium' }}"
+                      style="width:100%; margin-bottom: 10px;"
+                      width="100"
+                      height="auto"
+                    >
+                  {% endfor %}
+                </div>
+              {% endif %}
+              <div class="title">{{ product.title }}</div>
+              <div class="price">{{ product.price | money }}</div>
+              {% if product.variants.size > 1 %}
+                <div class="variant">
+                  {% for variant in product.variants %}
+                    {{ variant.title -}}
+                    {%- unless forloop.last %}, {% endunless %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+              <button class="btn-add" onclick="addItemToCart({{ product.variants.first.id }})">Add to Cart</button>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  function showTab(tabName) {
+    const tabs = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-button');
+
+    tabs.forEach((tab) => (tab.style.display = 'none'));
+    buttons.forEach((btn) => btn.classList.remove('active'));
+
+    document.getElementById(tabName).style.display = 'block';
+    event.target.classList.add('active');
+  }
+
+  function addItemToCart(variantId) {
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1 }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        alert('Item added to cart!');
+      });
+  }
+</script>
