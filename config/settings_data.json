@@ -153,9 +153,9 @@
           "bestseller_Kw4QVG": {
             "type": "bestseller",
             "settings": {
-              "title": "bbbbbbbb",
-              "price": "6546",
-              "variant": "gfdg",
+              "title": "Off White Ethnic Motifs Self Design Thread Work Pure Cotton Pathani Kurta Sets",
+              "price": "Rs. 1200",
+              "variant": "XL",
               "button_text": "Add to Cart",
               "image_1": "shopify://shop_images/2a9eae99-a91c-41ff-b1bc-d50e304a24e71696023508727OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta4.webp",
               "image_2": "shopify://shop_images/4178c698-2c30-4341-8dc3-72ae2988cf9a1696023508750OffWhitePureCottonEmbroideredPathaniKurtaWithTrousersDupatta2.webp"
@@ -217,8 +217,18 @@
           "bestseller_dH97B3"
         ],
         "settings": {
+          "bestseller_title": "Bestsellers",
+          "new_arrival_title": "New Arrivals",
           "font_family": "kaushan_script_n4",
-          "text_color": "#000000"
+          "title_color": "#000000",
+          "title_font_size": 18,
+          "price_color": "#333333",
+          "price_font_size": 16,
+          "variant_color": "#444444",
+          "variant_font_size": 14,
+          "button_text_color": "#ffffff",
+          "button_bg_color": "#000000",
+          "button_font_size": 14
         }
       }
     },
