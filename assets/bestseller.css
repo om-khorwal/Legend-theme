@@ -135,8 +135,15 @@
 }
 
 .tab-button.active {
-  background: black;
-  color: white;
+  background: transparent;
+  color: #000;
+  text-underline-offset: 10px;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgb(158 0 85);
+  font-size: large;
+  transition: all 0.3s ease;
+  
 }
 
 /* Tab content visibility handled via JavaScript by adding/removing "active" class */
