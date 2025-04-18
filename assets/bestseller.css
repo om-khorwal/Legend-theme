@@ -191,6 +191,10 @@
   font-weight: bold;
   margin: 0px;
 }
+.product-card .variants {
+  display: flex;
+  justify-content: center;
+}
 
 /* Product variants */
 .variant span {
