@@ -75,13 +75,12 @@
   font-size: 1.2rem;
 }
 
-.product-card p {
-  font-size: 1.2rem;
-}
-
-
 .product-card .price {
   font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
+  
 }
 
 .add-to-cart {
