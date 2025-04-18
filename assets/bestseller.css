@@ -145,7 +145,6 @@
   flex-wrap: nowrap;
   gap: 10px;
   overflow-x: auto;
-  padding: 20px 0;
   scroll-behavior: smooth;
   justify-content: center;
 }
