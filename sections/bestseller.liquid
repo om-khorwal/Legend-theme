@@ -1,175 +1,122 @@
-{{ 'bestseller.css' | asset_url | stylesheet_tag }}
+{% comment %}
+  Shopify Section: Featured Products with Tabs (Bestsellers / New Arrivals)
+{% endcomment %}
 
-<div
-  class="product-tabs"
-  style="font-family: {{ section.settings.font_family }}, sans-serif; color: {{ section.settings.text_color }}"
->
+<style>
+  .featured-tabs {
+    padding: 2rem;
+  }
+  .tabs {
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
+  .tabs span.active {
+    border-bottom: 2px solid black;
+  }
+  .product-grid {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  .product-card {
+    min-width: 250px;
+    scroll-snap-align: start;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .product-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .product-carousel img {
+    width: 100%;
+    display: none;
+  }
+  .product-carousel img.active {
+    display: block;
+  }
+  .variant-list {
+    margin-top: 0.5rem;
+  }
+</style>
+
+<div class="featured-tabs" style="background-color: {{ section.settings.bg_color }}">
   <div class="tabs">
-    <button class="tab-button active" onclick="switchTab('bestsellers')">Bestsellers</button>
-    <button class="tab-button" onclick="switchTab('new-arrivals')">New Arrivals</button>
-  </div>
-
-  <div id="bestsellers" class="tab-content active">
     {% for block in section.blocks %}
-      {% if block.type == 'bestseller' %}
-        <div class="product-card">
-          <div class="image-carousel">
-            {% for i in (1..6) %}
-              {% assign image_key = 'image_' | append: i %}
-              {% assign img = block.settings[image_key] %}
-              {% if img %}
-                <img src="{{ img | image_url: width: 300 }}" alt="Product Image {{ i }}" width="300" height="300">
-              {% endif %}
-            {% endfor %}
-          </div>
-          <h4 style="font-family: {{ section.settings.title_font.family }}; color: {{ section.settings.title_color }}">
-            {{ block.settings.title }}
-          </h4>
-          <p
-            class="price"
-            style="font-family: {{ section.settings.price_font }}; color: {{ section.settings.price_color }}"
-          >
-            {{ block.settings.price }}
-          </p>
-          <p
-            class="variant"
-            style="font-family: {{ section.settings.variant_font }}; color: {{ section.settings.variant_color }}"
-          >
-            {% assign variants = block.settings.variant | split: ',' %}
-            {% for item in variants %}
-              <span>{{ item | strip }}</span>
-              {%- unless forloop.last %}, {% endunless %}
-            {% endfor %}
-          </p>
-          <button
-            class="add-to-cart"
-            style="font-family: {{ section.settings.button_font }}; background-color: {{ section.settings.button_bg }}; color: {{ section.settings.button_color }}"
-          >
-            {{ block.settings.button_text }}
-          </button>
-        </div>
-      {% endif %}
+      <span class="tab-btn {% if forloop.first %}active{% endif %}" data-tab="tab-{{ block.id }}">
+        {{ block.settings.tab_title }}
+      </span>
     {% endfor %}
   </div>
 
-  <div id="new-arrivals" class="tab-content">
-    {% for block in section.blocks %}
-      {% if block.type == 'newarrival' %}
-        <div class="product-card">
-          <div class="image-carousel">
-            {% for i in (1..6) %}
-              {% assign image_key = 'image_' | append: i %}
-              {% assign img = block.settings[image_key] %}
-              {% if img %}
-                <img src="{{ img | image_url: width: 300 }}" alt="Product Image {{ i }}" width="300" height="300">
-              {% endif %}
-            {% endfor %}
+  {% for block in section.blocks %}
+    <div class="tab-content tab-{{ block.id }}" style="display: {% if forloop.first %}flex{% else %}none{% endif %}" class="product-grid">
+      <div class="product-grid">
+        {% assign collection = collections[block.settings.collection] %}
+        {% for product in collection.products limit: block.settings.product_limit %}
+          <div class="product-card">
+            <div class="product-carousel">
+              {% for image in product.images limit: 3 %}
+                <img src="{{ image | img_url: 'medium' }}" class="{% if forloop.first %}active{% endif %}
+                " width="200px" height="300"/>
+              {% endfor %}
+            </div>
+            <h3 style="color: {{ section.settings.title_color }}; font-size: {{ section.settings.title_size }}">
+              {{ product.title }}
+            </h3>
+            <p style="color: {{ section.settings.price_color }}; font-size: {{ section.settings.price_size }}">
+              {{ product.price | money }}
+            </p>
+            <div class="variant-list">
+              {% for variant in product.variants %}
+                <span>{{ variant.title }}</span>
+              {% endfor %}
+            </div>
+            <button style="background: {{ section.settings.button_bg }}; color: {{ section.settings.button_color }}">
+              Add to Cart
+            </button>
           </div>
-          <h4 style="font-family: {{ section.settings.title_font.family }}; color: {{ section.settings.title_color }}">
-            {{ block.settings.title }}
-          </h4>
-          <p
-            class="price"
-            style="font-family: {{ section.settings.price_font }}; color: {{ section.settings.price_color }}"
-          >
-            {{ block.settings.price }}
-          </p>
-          <p
-            class="variant"
-            style="font-family: {{ section.settings.variant_font }}; color: {{ section.settings.variant_color }}"
-          >
-            {% assign variants = block.settings.variant | split: ',' %}
-            {% for item in variants %}
-              <span>{{ item | strip }}</span>
-              {%- unless forloop.last %}, {% endunless %}
-            {% endfor %}
-          </p>
-          <button
-            class="add-to-cart"
-            style="font-family: {{ section.settings.button_font }}; background-color: {{ section.settings.button_bg }}; color: {{ section.settings.button_color }}"
-          >
-            {{ block.settings.button_text }}
-          </button>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
 </div>
 
 <script>
-  function switchTab(id) {
-    document.querySelectorAll('.tab-button').forEach((btn) => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach((tab) => tab.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    event.target.classList.add('active');
-  }
-</script>
-<script>
-  function showTab(tabName) {
-    const tabs = document.querySelectorAll('.tab-content');
-    const buttons = document.querySelectorAll('.tab-button');
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
 
-    tabs.forEach(tab => tab.style.display = 'none');
-    buttons.forEach(btn => btn.classList.remove('active'));
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        tabButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
 
-    document.getElementById(tabName).style.display = 'block';
-    event.target.classList.add('active');
-  }
-
-  function addItemToCart(variantId) {
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: variantId, quantity: 1 })
-    }).then(res => res.json())
-      .then(data => {
-        alert("Item added to cart!");
+        const target = btn.getAttribute("data-tab");
+        tabContents.forEach((c) => {
+          c.style.display = c.classList.contains(target) ? "flex" : "none";
+        });
       });
-  }
+    });
+  });
 </script>
+
 {% schema %}
 {
-  "name": "Product Tabs",
+  "name": "Featured Products Tabs",
   "settings": [
     {
-      "type": "header",
-      "content": "Tab Settings"
-    },
-    {
-      "type": "text",
-      "id": "bestseller_title",
-      "label": "Bestseller Tab Title",
-      "default": "Bestsellers"
-    },
-    {
-      "type": "text",
-      "id": "new_arrival_title",
-      "label": "New Arrival Tab Title",
-      "default": "New Arrivals"
-    },
-
-    {
-      "type": "header",
-      "content": "Typography Settings"
-    },
-
-    {
-      "type": "select",
-      "id": "font_family",
-      "label": "Font Family",
-      "options": [
-        { "value": "Arial", "label": "Arial" },
-        { "value": "Helvetica", "label": "Helvetica" },
-        { "value": "Georgia", "label": "Georgia" },
-        { "value": "Times New Roman", "label": "Times New Roman" },
-        { "value": "Courier New", "label": "Courier New" }
-      ],
-      "default": "Arial"
-    },
-
-    {
-      "type": "header",
-      "content": "Product Title Style"
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
     },
     {
       "type": "color",
@@ -178,119 +125,79 @@
       "default": "#000000"
     },
     {
-      "type": "range",
-      "id": "title_font_size",
+      "type": "text",
+      "id": "title_size",
       "label": "Title Font Size",
-      "min": 12,
-      "max": 36,
-      "step": 1,
-      "default": 18
-    },
-
-    {
-      "type": "header",
-      "content": "Price Style"
+      "default": "18px"
     },
     {
       "type": "color",
       "id": "price_color",
       "label": "Price Color",
-      "default": "#333333"
+      "default": "#000000"
     },
     {
-      "type": "range",
-      "id": "price_font_size",
+      "type": "text",
+      "id": "price_size",
       "label": "Price Font Size",
-      "min": 12,
-      "max": 30,
-      "step": 1,
-      "default": 16
-    },
-
-    {
-      "type": "header",
-      "content": "Variant Style"
+      "default": "16px"
     },
     {
       "type": "color",
-      "id": "variant_color",
-      "label": "Variant Text Color",
-      "default": "#444444"
-    },
-    {
-      "type": "range",
-      "id": "variant_font_size",
-      "label": "Variant Font Size",
-      "min": 12,
-      "max": 30,
-      "step": 1,
-      "default": 14
-    },
-
-    {
-      "type": "header",
-      "content": "Button Style"
-    },
-    {
-      "type": "color",
-      "id": "button_text_color",
-      "label": "Button Text Color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "color",
-      "id": "button_bg_color",
+      "id": "button_bg",
       "label": "Button Background Color",
       "default": "#000000"
     },
     {
-      "type": "range",
-      "id": "button_font_size",
-      "label": "Button Font Size",
-      "min": 12,
-      "max": 30,
-      "step": 1,
-      "default": 14
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
     }
   ],
-  "max_blocks": 16,
   "blocks": [
     {
-      "type": "bestseller",
-      "name": "Bestseller Product",
+      "type": "tab",
+      "name": "Tab",
       "settings": [
-        { "type": "text", "id": "title", "label": "Product Title" },
-        { "type": "text", "id": "price", "label": "Product Price" },
-        { "type": "text", "id": "variant", "label": "Product Variant" },
-        { "type": "text", "id": "button_text", "label": "Button Text", "default": "Add to Cart" },
-        { "type": "image_picker", "id": "image_1", "label": "Image 1" },
-        { "type": "image_picker", "id": "image_2", "label": "Image 2" },
-        { "type": "image_picker", "id": "image_3", "label": "Image 3" },
-        { "type": "image_picker", "id": "image_4", "label": "Image 4" },
-        { "type": "image_picker", "id": "image_5", "label": "Image 5" },
-        { "type": "image_picker", "id": "image_6", "label": "Image 6" }
-      ]
-    },
-    {
-      "type": "newarrival",
-      "name": "New Arrival Product",
-      "settings": [
-        { "type": "text", "id": "title", "label": "Product Title" },
-        { "type": "text", "id": "price", "label": "Product Price" },
-        { "type": "text", "id": "variant", "label": "Product Variant" },
-        { "type": "text", "id": "button_text", "label": "Button Text", "default": "Add to Cart" },
-        { "type": "image_picker", "id": "image_1", "label": "Image 1" },
-        { "type": "image_picker", "id": "image_2", "label": "Image 2" },
-        { "type": "image_picker", "id": "image_3", "label": "Image 3" },
-        { "type": "image_picker", "id": "image_4", "label": "Image 4" },
-        { "type": "image_picker", "id": "image_5", "label": "Image 5" },
-        { "type": "image_picker", "id": "image_6", "label": "Image 6" }
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Best Selling"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "number",
+          "id": "product_limit",
+          "label": "Number of Products",
+          "default": 6
+        }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Product Tabs"
+      "name": "Featured Products Tabs",
+      "category": "Products",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Best Selling"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Latest Arrivals"
+          }
+        }
+      ]
     }
   ]
 }
